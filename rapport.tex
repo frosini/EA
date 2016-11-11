@@ -136,7 +136,7 @@
 	
 	\setcounter{secnumdepth}{5}
 	\makeatletter
-	\renewcommand{\theequation}{\arabic{section}.\arabic{equation}}
+	\renewcommand{\theequation}{\arabic{section}.\arabic{subsection}.\arabic{equation}}
 	\@addtoreset{equation}{section}
 	\renewcommand{\theparagraph}{\hspace*{3em} $\rhd$ \hspace*{1em}}
 	\renewcommand{\thesubparagraph}{\hspace*{3em} $\looparrowright$ S\arabic{paragraph}.\hspace*{1em}}
@@ -202,23 +202,27 @@
 		
 	\section{Introduction}
 
-	\section{Équations relativistes}
-		\subsection{Rappels sur le champ électromagnétique}
-			\subsubsection{Formalisme tensoriel et équations de Maxwell}
+	\section{Équations relativistes du mouvement}
+			
 		\subsection{Équation de Klein-Gordon}
 			\subsubsection{Principe de correspondance}
-			\subsubsection{Établissement de l'équation de Klein-Gordon}
-			\subsubsection{Invariance de jauge }
+			\subsubsection{Équation de Klein-Gordon pour une particule libre de spin 0}
+			\subsubsection{Invariance de jauge}
+			\subsubsection{Optionnel: Limite non relativiste}
 		\subsection{Équation de Dirac}
-		
+			\subsubsection{Établissement de l'équation de Dirac libre}
+			\subsubsection{Spineur de Dirac}
+			\subsubsection{Covariance de l'équation de Dirac}
+			\subsubsection{Symétries discrètes}
 	\section{Champs}
 		\subsection{Champs et formalisme Lagrangien}
 			\subsubsection{Champs relativistes et champs quantiques}
 			\subsubsection{Lagrangiens et champs}
 			\subsubsection{Seconde quantification}
 		\subsection{Champ électromagnétique}
+			\subsubsection{Formalisme tensoriel et équations de Maxwell}
 			\subsubsection{Équations de Lagrange du champ électromagnétique}
-		\subsection{Champ de Klein-Gordon}
+		\subsection{Champ scalaire de Klein-Gordon}
 			\subsubsection{Formalisme Lagrangien pour une particule chargée}
 			\subsubsection{Quantification du champ}
 			\subsubsection{Interprétation}
@@ -230,7 +234,8 @@
 		\section{Théorie de Jauge}
 		
 		\subsection{Invariance de jauge}
-		
+			\subsubsection{Exemple 1 : Champ électromagnétique}
+			\subsubsection{Exemple 2 : $SU(2)$}
 		\subsection{Champ de Jauge}
 		
 		\subsection{Couplage entre matière et jauge}
