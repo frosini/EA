@@ -1,0 +1,228 @@
+\documentclass{article}
+\usepackage[UTF8]{inputenc}   
+\usepackage[francais]{babel}  
+%\usepackage{isolatin1}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{mathrsfs}       
+\usepackage{xargs}       
+\usepackage{wasysym}
+\usepackage{engrec}
+\usepackage{enumerate}
+\usepackage{appendix}
+
+\usepackage[pdftex,breaklinks]{hyperref}
+\usepackage{titlesec}
+\usepackage{titletoc}
+\usepackage[pdftex]{graphicx}
+
+\usepackage{color}
+\usepackage{fancybox}
+\usepackage{dsfont}
+\input cyracc.def
+\font\tencyr=wncyr10
+\def\cyr{\tencyr\cyracc}
+\def\sha{\mbox{\cyr SH}}
+\newtheorem{dfn}{Définition}
+\newtheorem{rem}{Remarque}
+\newtheorem{theo}{Théorème}
+\newtheorem{prop}{Proposition}  
+\setlength{\parindent}{0cm}
+\renewcommandx*{\hrulefill}[2][1=2.5pt,2=4pt]{\leavevmode \leaders \hbox to 1pt{\rule[#1]{1pt}{#2}} \hfill \kern 0pt}
+\renewcommand{\theprop}{\empty{}}
+\renewcommand{\thedfn}{\empty{}}      
+\renewcommand{\thetheo}{\arabic{chapter}.\arabic{theo}}
+\newtheorem{lem}{Lemme}  
+\renewcommand{\thelem}{\empty{}}
+\newtheorem{cor}{Corollaire}  
+\renewcommand{\thecor}{\empty{}}
+\newcommand{\un}{\mathds{1}}
+\newcommand{\vu}[1]{\mathbf{\hat{#1}}}
+
+\newcommand{\E}{\mathbb{E}}
+
+
+\newlength{\ecartnumero}
+
+\setlength{\ecartnumero}{4mm}
+
+\titlecontents{chapter}%
+[\dimexpr 6.5mm+\ecartnumero]
+{\vspace{4.2mm}\bfseries}
+{\contentslabel{\dimexpr 20mm+\ecartnumero}}
+{\hspace{\dimexpr -5.5mm-\ecartnumero}}
+{\hfill\contentspage}
+
+\dottedcontents{section}%
+[\dimexpr\ecartnumero]
+{}
+{\dimexpr\ecartnumero}
+{2mm}
+
+\dottedcontents{subsection}%
+[\dimexpr 20mm+\ecartnumero]
+{}
+{\dimexpr 15mm+\ecartnumero}
+{3.2mm}
+
+\dottedcontents{subsubsection}%
+[\dimexpr 25mm+\ecartnumero]
+{}
+{\dimexpr 15mm+\ecartnumero}
+{3.2mm}
+
+
+
+\graphicspath{/plots}
+
+\title{Modèle standard et théories de jauge \n{2} \\\textsc{PHY 575 B}\\\n2 \date{\today}}
+\author{Vincent \textsc{Verbavatz} \& Mikael \textsc{Frosini}}
+
+\newcommand{\Cr}[2]{\begin{pmatrix}
+		#2\\#1
+	\end{pmatrix}}
+	\newcommand{\eq}[1]{\underset{#1}\sim}
+	\newcommand{\ev}[2]{\left.#1\right|_{#2}}
+	\newcommandx{\pd}[4][1=1,4=n]{\ifnum#1=1 %
+		\frac{\partial#2}{\partial#3} %
+		\else %
+		\ifnum #1=-1 %
+		\frac{\partial^{#4}#2}{\partial#3^{#4}} %
+		\else %
+		\frac{\partial^#1#2}{\partial#3^#1} %
+		\fi \fi }
+	
+	\newcommand{\zero}[1]{\ifnum#1=2%
+		\begin{pmatrix}%
+			0\\0%
+		\end{pmatrix}%
+		\else%
+		\begin{pmatrix}%
+			0\\0\\0
+		\end{pmatrix}\fi}
+	
+	\newcommand{\C}{\mathcal C}
+	\newcommand*{\s}[2][n]{(#2_#1)_{#1\ge0}}
+	\newcommand*{\Cc}[1][\Omega]{\mathcal{C}_c(#1)}
+	\newcommand*{\Lp}[1][\Omega]{\mathcal{L}^+(#1)}
+	\newcommand*{\Li}[1][\Omega]{\mathcal{L}^1(#1)}
+	\newcommand{\ud}{\mathrm{d}}
+	\newcommand{\nab}{\v \nabla \ }
+	\newcommand{\rot}{\v \nabla \wedge }
+	\newcommand{\sinc}{\mathrm{\ sinc\ }}
+	\renewcommand{\c}{\mathbb C}
+	\newcommand{\R}{\mathbb{R}}
+	\newcommand{\p}{\mathbb{P}}
+	\newcommand{\K}{\mathbb{K}}
+	\newcommand{\vL}{\vec{L}}
+	\newcommand{\Tr}{\mathrm{Tr}}
+	\renewcommand{\P}{\mathbb{P}}
+	
+	
+	
+	\newcommand{\Z}{\mathbb Z}
+	\newcommand{\grad}{\overrightarrow{grad}}
+	\newcommand{\inv}[1]{\frac{1}{#1}}
+	\newcommand{\M}{\v{\mathcal{M}}}
+	\newcommand{\dS}{ \overrightarrow{\ud S}}
+	\newcommand{\N}{\mathbb{N}}
+	\newcommand{\dl}{ \overrightarrow{\ud l}}
+	\newcommand{\ik}{i\v k}
+	\newcommand{\ls}{~\\}
+	\renewcommand{\v}[1]{\overrightarrow{#1}}
+	\renewcommand{\thesection}{\arabic{section}}
+	\renewcommand{\thesubsection}{\thesection. \arabic{subsection}}
+	\renewcommand{\thesubsubsection}{\thesubsection. \arabic{subsubsection}}
+	
+	\setcounter{secnumdepth}{5}
+	\makeatletter
+	\renewcommand{\theequation}{\arabic{section}.\arabic{equation}}
+	\@addtoreset{equation}{section}
+	\renewcommand{\theparagraph}{\hspace*{3em} $\rhd$ \hspace*{1em}}
+	\renewcommand{\thesubparagraph}{\hspace*{3em} $\looparrowright$ S\arabic{paragraph}.\hspace*{1em}}
+	\@addtoreset{paragraph}{section}
+	\@addtoreset{subparagraph}{paragraph}
+	\@addtoreset{theo}{chapter}
+	\makeatother
+	
+	
+	
+	
+	\hypersetup{
+		colorlinks=true,
+		linkcolor=blue,
+		filecolor=magenta,      
+		urlcolor=cyan,
+	}
+	
+	\urlstyle{same}
+	
+	
+	
+	
+	\newcommand{\n}[1]{ \vspace{#1\baselineskip}}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	\begin{document}
+		
+		\maketitle
+		\pagebreak
+		\tableofcontents
+		
+		\pagebreak
+		
+		\section{Introduction}
+
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		\begin{thebibliography}{4}
+			\bibitem{Gluckstern:1963ng}
+			R.~L.~Gluckstern,
+			``Uncertainties in track momentum and direction, due to multiple scattering and measurement errors,''
+			Nucl.\ Instrum.\ Meth.\  {\bf 24} (1963) 381.
+			%doi:10.1016/0029-554X(63)90347-1
+			%%CITATION = doi:10.1016/0029-554X(63)90347-1;%%
+			%246 citations counted in INSPIRE as of 30 Sep 2016
+			
+
+			\end{thebibliography}
+	\end{document}
+	
