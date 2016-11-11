@@ -56,13 +56,13 @@
 \dottedcontents{section}%
 [\dimexpr\ecartnumero]
 {}
-{\dimexpr\ecartnumero}
+{\dimexpr 2mm +\ecartnumero}
 {2mm}
 
 \dottedcontents{subsection}%
-[\dimexpr 20mm+\ecartnumero]
+[\dimexpr 10mm+\ecartnumero]
 {}
-{\dimexpr 15mm+\ecartnumero}
+{\dimexpr 3mm+\ecartnumero}
 {3.2mm}
 
 \dottedcontents{subsubsection}%
@@ -130,8 +130,8 @@
 	\newcommand{\ik}{i\v k}
 	\newcommand{\ls}{~\\}
 	\renewcommand{\v}[1]{\overrightarrow{#1}}
-	\renewcommand{\thesection}{\arabic{section}}
-	\renewcommand{\thesubsection}{\thesection. \arabic{subsection}}
+	\renewcommand{\thesection}{\Roman{section}$\backslash$ }
+	\renewcommand{\thesubsection}{\arabic{subsection}.}
 	\renewcommand{\thesubsubsection}{\thesubsection. \arabic{subsubsection}}
 	
 	\setcounter{secnumdepth}{5}
@@ -202,16 +202,47 @@
 		
 		\section{Introduction}
 
+		\section{Formalisme lagrangien et champs libres}
+		
+		\subsection{Champs et formalisme Lagrangien}
+		
+		\subsection{Champ électromagnétique}
+		
+		\subsection{Champ de Klein-Gordon}
+		
+		\subsection{Champ de Dirac}
 		
 		
+		\section{Théorie de Jauge}
+		
+		\subsection{Invariance de jauge}
+		
+		\subsection{Champ de Jauge}
+		
+		\subsection{Couplage entre matière et jauge}
+		
+
 		
 		
+		\section{Modèle standard et brisure de symétrie}
+		
+
+		
+		\subsection{Présentation qualitative du modèle standard}
+		
+		\subsection{Interactions électro-faibles}
+		
+		\subsection{Chromodynamique quantique}
+		
+		\subsection{Champ de Higgs et brisure de symétrie}
 		
 		
+		\section{Au delà du modèle standard}
 		
 		
-		
-		
+		\begin{appendices}
+			\section{contenu...}
+		\end{appendices}
 		
 		\begin{thebibliography}{4}
 			\bibitem{Auteur:ref}
